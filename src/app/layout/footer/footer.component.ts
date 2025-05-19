@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit, signal, Signal } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal, Signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -8,6 +9,8 @@ import { Component, OnDestroy, OnInit, signal, Signal } from '@angular/core';
 })
 export class FooterComponent implements OnInit,OnDestroy {
 
+  private router = inject(Router);
+
   year = signal(0);
 
 
@@ -15,6 +18,10 @@ export class FooterComponent implements OnInit,OnDestroy {
     let fecha = new Date;
 
     this.year.set(fecha.getFullYear());
+  }
+
+  goRoutes(ruta:string){
+    this.router.navigate([ruta]);
   }
 
 

@@ -18,10 +18,6 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
   }
 
-  goHome(){
-    this.router.navigate(['/']);
-  }
-
   goRoutes(ruta:string){
     this.router.navigate([ruta]);
   }
